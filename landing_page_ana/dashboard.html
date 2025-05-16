@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard InfoSUS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #f2f8fc;
+      font-family: 'Inter', sans-serif;
+      color: #002244;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .dashboard-container {
+      max-width: 480px;
+      margin: 60px auto 0 auto;
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.08);
+      padding: 40px 28px 32px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .dashboard-container h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #004080;
+      margin-bottom: 18px;
+    }
+    .dashboard-container p {
+      font-size: 1.13rem;
+      color: #3a5a7a;
+      margin-bottom: 32px;
+    }
+    .btn {
+      background: #004080;
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 16px;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s ease;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+      margin: 8px 0 0 0;
+      cursor: pointer;
+    }
+    .btn:hover { opacity: .85; }
+    /* Modal styles */
+    .modal-bg {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.65);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-bg.active { display: flex; }
+    .modal-content {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 32px rgba(0,0,0,.18);
+      padding: 24px 18px 18px 18px;
+      max-width: 98vw;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+    .modal-content img {
+      max-width: 80vw;
+      max-height: 70vh;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.07);
+    }
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 18px;
+      background: #004080;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .close-modal:hover { background: #0077b6; }
+  </style>
+</head>
+<body>
+  <div class="dashboard-container">
+    <h1>Dashboard em desenvolvimento</h1>
+    <p>O painel de dados InfoSUS está em construção.<br>
+    Veja abaixo o wireframe de como ficará a visualização dos dados gerais do SUS.</p>
+    <button class="btn" id="openModalBtn">Visualizar Wireframe</button>
+    <a href="assets/wireframe_dashboard/wireframe dashboard.png" class="btn" download>Download do Wireframe</a>
+    <a href="index.html" class="btn">Voltar para site</a>
+  </div>
+  <div class="modal-bg" id="modalBg">
+    <div class="modal-content">
+      <button class="close-modal" id="closeModalBtn" title="Fechar">&times;</button>
+      <img src="assets/wireframe_dashboard/wireframe dashboard.png" alt="Wireframe do Dashboard InfoSUS">
+    </div>
+  </div>
+  <script>
+    const openModalBtn = document.getElementById('openModalBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const modalBg = document.getElementById('modalBg');
+    openModalBtn.onclick = () => { modalBg.classList.add('active'); };
+    closeModalBtn.onclick = () => { modalBg.classList.remove('active'); };
+    modalBg.onclick = (e) => { if(e.target === modalBg) modalBg.classList.remove('active'); };
+  </script>
+</body>
+</html> 

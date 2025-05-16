@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InfoSUS</title>
+
+  <!-- Fonte Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:'Inter',sans-serif;
+      background-color:#f2f8fc;
+      color:#002244;
+    }
+    html {
+  scroll-behavior: smooth;
+}
+    /* ---------- HEADER ---------- */
+    header,footer{
+      background:#fff;
+      padding:20px 40px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      box-shadow:0 1px 5px rgba(0,0,0,.1);
+    }
+    nav a{
+      margin:0 10px;
+      font-weight:600;
+      font-size:14px;
+      color:#004080;
+      text-decoration:none;
+    }
+    .btn {
+  background: #004080;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s ease;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12); /* sombra destacada */
+}
+    .btn:hover{opacity:.85}
+
+    /* ---------- HERO ---------- */
+    .hero {
+      position: relative;
+      width: 100vw;
+      min-width: 100vw;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      height: 1150px;
+      background: url("assets/profissional/profissional_bg.png") no-repeat center top;
+      background-size: 110% auto;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: flex-start;
+      padding: 0 7vw 0 0;
+    }
+
+    .hero {
+  background: url("assets/profissional/profissional_bg.png") no-repeat center top;
+  background-size: 110% auto;
+  padding: 120px 40px 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+    .hero-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  width: 100%;
+  gap: 60px;
+}
+
+    .hero-text {
+      max-width: 20vw;
+      margin-left: auto;
+      margin-top: 120px;
+      text-align: left;
+      padding-right: 2vw;
+      z-index: 2;
+    }
+    .hero-text h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+.hero-text p {
+  font-size: 1.25rem;
+  margin-bottom: 32px;
+}
+    #sobre-projeto-container {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 720px;
+      width: 90vw;
+      max-width: 1300px;
+      background: #fff;
+      border-radius: 32px;
+      box-shadow: 0 4px 32px rgba(0,0,0,.08);
+      padding: 56px 48px;
+      z-index: 2;
+      text-align: center;
+    }
+    #sobre-projeto-container h2 {
+      font-size: 2.1rem;
+      margin-bottom: 36px;
+    }
+    #sobre-projeto-container .cards {
+      gap: 32px;
+    }
+    #sobre-projeto-container .card {
+      font-size: 1.1rem;
+      padding: 32px 18px;
+      min-width: 260px;
+      max-width: 340px;
+    }
+    #sobre-projeto-container .card img {
+      width: 100px;
+      margin-bottom: 18px;
+    }
+    #sobre-projeto-container .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+
+    /* ---------- SECTION BASE ---------- */
+    .section{
+      position:relative;
+      padding:120px 40px 80px;
+      background:#fff;
+      z-index:1;
+    }
+
+    .section#sobre {
+      position: relative;
+      background: transparent;
+    }
+
+    .section#sobre::before {
+  content: "";
+  position: absolute;
+  top: -70vh;         /* relativo à altura da tela */
+  left: -50vw;        /* relativo à largura da tela */
+  width: 200vw;       /* se quiser controlar melhor o tamanho */
+  height: 130vh;
+  /* background: url(assets/backgrounds/Union.png) no-repeat; */
+  background-size: auto;
+  background-position: center;
+  z-index: -1;
+}
+
+    .section#sobre .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .section h2{
+      text-align:center;
+      font-size:24px;
+      font-weight:600;
+      margin-bottom:40px;
+    }
+    .section .container{
+      max-width:1200px;
+      margin:0 auto;
+      position:relative;
+      z-index:1;
+      padding:40px;
+      background:#fff;
+      border-radius:20px;
+      box-shadow:0 2px 20px rgba(0,0,0,.05);
+    }
+    .cards{display:flex;justify-content:center;flex-wrap:wrap;gap:20px}
+    .card{
+      background:#f9fcff;
+      border:1px solid #d6e9f7;
+      border-radius:12px;
+      width:250px;
+      padding:20px;
+      text-align:center;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06); /* sombra uniforme mais visível */
+    }
+    .card img{width:80px;margin-bottom:10px}
+
+    /* ---------- INDICADORES ---------- */
+    .indicators{
+      background: transparent;
+      padding: 120px 20px 80px;
+      text-align: center;
+      position: relative;
+      z-index: 0;
+    }
+    .indicators-card {
+  background: transparent;
+  border-radius: 0;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 0 40px;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+    .indicators-card h2{
+      font-size:2.3rem;
+      font-weight:600;
+      font-family:'Inter',sans-serif;
+      font-variation-settings:'wght' 600;
+      margin-bottom:6px;
+      color:var(--c-primary);
+    }
+    .indicators-card .subtitle{
+      font-size:1.15rem;
+      color:#3a5a7a;
+      margin-bottom:32px;
+      font-weight:400;
+    }
+    .indicators .cards{
+      display:flex;gap:32px;justify-content:center;flex-wrap:wrap;margin-bottom:32px
+    }
+    .indicators .card{
+      background:#f9fcff;
+      border:1.5px solid var(--c-outline);
+      border-radius:14px;
+      width:240px;
+      padding:32px 14px 24px;
+      display:flex;flex-direction:column;align-items:center;
+      box-shadow:0 2px 8px rgba(0,0,0,.06);
+    }
+    .indicators .card img{width:48px;margin-bottom:12px}
+    .indicators .card h3{
+      font-size:1.08rem;
+      font-weight:600;
+      margin-bottom:8px;
+      font-family:'Inter',sans-serif;
+      font-variation-settings:'wght' 600;
+    }
+    .indicators .card p{
+      font-size:2rem;
+      font-weight:700;
+      color:var(--c-text);
+      margin:0;
+      font-family:'Inter',sans-serif;
+      font-variation-settings:'wght' 600;
+    }
+    .indicators .btn{
+      margin-top:0;width:320px;max-width:90vw;border-radius:10px;letter-spacing:.4px;font-size:1.1rem;font-weight:600;padding:14px 0;
+    }
+
+    /* ---------- PUBLICO + FONTES UNIFICADO ---------- */
+    .publico-unificado {
+      position: relative;
+      padding: 120px 0 80px 0;
+      background: #e9f7fd;
+      text-align: center;
+      z-index: 1;
+      overflow: hidden;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+    }
+    .publico-unificado::before {
+      content: "";
+      position: absolute;
+      top: -60px;
+      left: 0;
+      width: 100%;
+      height: 200%;
+      background: url('assets/backgrounds/Union_footer.png') no-repeat center bottom;
+      background-size: cover;
+      z-index: -1;
+      opacity: 1;
+    }
+    .publico-bloco h2 {
+      font-size: 2.3rem;
+      font-weight: 700;
+      color: #003366;
+      margin-bottom: 44px;
+      font-family: 'Inter', sans-serif;
+    }
+    .publico-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      max-width: 800px;
+      margin: 0 auto 60px auto;
+    }
+    .publico-card {
+      background: #fff;
+      border: 1.5px solid #bde1f1;
+      border-radius: 18px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06); /* sombra uniforme mais visível */
+      padding: 36px 32px 28px 32px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: 120px;
+    }
+    .publico-titulo {
+      color: #22b6d4;
+      font-size: 1.45rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      font-family: 'Inter', sans-serif;
+    }
+    .publico-desc {
+      color: #3a5a7a;
+      font-size: 1.08rem;
+      font-weight: 400;
+      font-family: 'Inter', sans-serif;
+    }
+    @media (max-width: 900px) {
+      .publico-container {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        max-width: 98vw;
+      }
+      .publico-card {
+        padding: 22px 10px 16px 10px;
+        font-size: 1rem;
+      }
+      .publico-bloco h2 {
+        font-size: 1.3rem;
+        margin-bottom: 22px;
+      }
+    }
+
+    /* ---------- FONTES ---------- */
+    .fontes{
+      background:#fff;
+      display:flex;
+      justify-content:center;
+      padding:60px 20px;
+    }
+    .fontes-bloco {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 28px;
+      box-shadow: 0 2px 20px rgba(0,0,0,.07);
+      padding: 48px 36px 36px 36px;
+      margin-bottom: 0;
+      margin-top: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .fontes-container {
+      background: none;
+      box-shadow: none;
+      border-radius: 0;
+      padding: 0;
+      max-width: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    .fontes-topo {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      margin-bottom: 24px;
+    }
+    .fontes-topo h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #002244;
+      margin: 0;
+    }
+    .fontes-topo p {
+      font-size: .95rem;
+      font-weight: 600;
+      color: #22b6d4;
+      text-align: right;
+      margin: 0;
+    }
+    .fontes-subinfo {
+      font-size: .95rem;
+      color: #444;
+      text-align: right;
+      margin-top: 4px;
+    }
+    .fontes-logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      justify-content: center;
+    }
+    .logo-card {
+      background: #fff;
+      border: 1.5px solid #d6e9f7;
+      padding: 12px 24px;
+      border-radius: 12px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .15s ease;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06); /* sombra uniforme mais visível */
+    }
+    .logo-card img {
+      max-height: 48px;
+      max-width: 140px;
+    }
+    @media (max-width: 900px) {
+      .fontes-bloco {
+        padding: 24px 8px 18px 8px;
+        border-radius: 14px;
+      }
+      .fontes-topo {
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+      }
+      .fontes-logos {
+        gap: 16px;
+      }
+    }
+
+    /* ---------- CTA ---------- */
+    .cta-wrapper{
+      background:#c8eef9;
+      padding:80px 20px;
+      display:flex;
+      justify-content:center;
+      border-top-left-radius:40px;
+      border-top-right-radius:40px;
+    }
+    .cta-container{
+      background:#fff;
+      padding:50px 30px;
+      border-radius:20px;
+      max-width:700px;
+      width:100%;
+      text-align:center;
+      box-shadow:0 4px 12px rgba(0,0,0,.08);
+    }
+  .cta-container {
+  background: #fff;
+  padding: 50px 30px;
+  border-radius: 20px;
+  max-width: 30%;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+  margin-bottom: 20px;
+}
+
+.cta-container a.btn {
+  margin-top: 24px; /* ou 20px, ajusta como quiser */
+}
+
+    /* ---------- FOOTER ---------- */
+    footer {
+  background: #fff;
+  padding: 36px 40px;
+  border-top: 1px solid #c0dbe4;
+  font-size: 16px;
+  font-weight: 600;
+  color: #003366;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.05); /* nova sombra */
+}
+   
+footer nav a {
+  margin-left: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #003366;
+  text-decoration: none;
+}
+
+    /* ---------- RESPONSIVO ---------- */
+    @media (max-width:1024px){
+      .hero-inner{flex-direction:column;align-items:center;padding:70px 20px 100px;gap:40px}
+      .hero-text{text-align:center;max-width:90vw}
+      .hero-text h2{font-size:2.2rem}
+      .hero-img-wrapper{flex:0 0 260px;width:260px}
+      #sobre-projeto-container{margin:-70px auto 0;padding:40px 10px}
+      .cards{gap:24px}
+      .publico-container{grid-template-columns:1fr;max-width:90vw}
+      .indicators-card{max-width:99vw;padding:24px 4vw 18px 4vw;border-radius:14px}
+      .indicators .cards{flex-direction:column;gap:18px}
+      .indicators .card{width:98vw;max-width:400px;margin:0 auto}
+      .indicators .btn{width:98vw;max-width:98vw}
+    }
+    @media (max-width:600px){
+      .hero-text h2{font-size:1.9rem}
+      .hero-text p{font-size:1.05rem}
+      .hero-img-wrapper{width:210px}
+      #sobre-projeto-container{padding:30px 6px}
+      .card{width:100%;max-width:360px}
+      .indicators-card{padding:12px 2vw 10px 2vw}
+      .indicators .cards{flex-direction:column;gap:14px}
+      .indicators .card{width:100%;max-width:360px}
+      .publico .card{padding:20px 16px}
+      .logo-card{flex:1 1 120px;height:64px}
+      footer{flex-direction:column;align-items:flex-start;gap:10px;padding:20px}
+      .publico h2{font-size:1.2rem;margin-bottom:18px}
+      .publico-container{gap:10px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>InfoSUS</h1>
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#indicadores">Indicadores</a>
+      <a href="#fontes">Fontes</a>
+    </nav>
+    <a href="dashboard.html" class="btn">ACESSAR PAINEL</a>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-inner">
+      <div class="hero-img-wrapper">
+        
+      </div>
+      <div class="hero-text">
+        <h2>Clareza para entender o SUS</h2>
+        <p>Visualize dados da saúde pública.</p>
+        <a href="dashboard.html" class="btn">ACESSAR DASHBOARD</a>
+      </div>
+    </div>
+  
+    <div class="container" id="sobre-projeto-container">
+      <h2>Sobre o Projeto</h2>
+      <div class="cards">
+        <div class="card">
+          <img src="assets/Sobre_Projeto/family_board.png" alt="Missão">
+          <h3>Missão</h3>
+          <p>Tornar os dados do SUS acessíveis e compreensíveis para todos, promovendo transparência e cidadania.</p>
+        </div>
+        <div class="card">
+          <img src="assets/Sobre_Projeto/family.png" alt="Público">
+          <h3>Público</h3>
+          <p>Cidadãos, profissionais da saúde, gestores públicos e estudantes interessados na saúde pública brasileira.</p>
+        </div>
+        <div class="card">
+          <img src="assets/Sobre_Projeto/board_med.png" alt="Proposta">
+          <h3>Proposta</h3>
+          <p>Organizar e visualizar informações do SUS de forma simples, interativa e confiável.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDICADORES -->
+  <section class="indicators" id="indicadores">
+    <div class="indicators-card">
+      <h2>Prévia dos Indicadores</h2>
+      <p class="subtitle">Visualize os principais dados do SUS em tempo real.</p>
+      <div class="cards">
+        <div class="card">
+          <img src="assets/Previa_indicadores/hospital.png" alt="Internações">
+          <h3>Internações em 2025</h3>
+          <p>1.250.000</p>
+        </div>
+        <div class="card">
+          <img src="assets/Previa_indicadores/seringa.png" alt="Vacinação">
+          <h3>Cobertura Vacinal Média</h3>
+          <p>74,2%</p>
+        </div>
+        <div class="card">
+          <img src="assets/Previa_indicadores/cama.png" alt="Leitos Disponíveis">
+          <h3>Leitos Disponíveis SUS</h3>
+          <p>98.352</p>
+        </div>
+      </div>
+      <a href="dashboard.html" class="btn">VER TODOS OS DADOS NO PAINEL</a>
+    </div>
+  </section>
+
+  <!-- PUBLICO + FONTES UNIFICADO -->
+  <section class="publico-unificado">
+    <div class="publico-bloco">
+      <h2>Para Cidadãos, Profissionais da Saúde, Gestores e Jornalistas</h2>
+      <div class="publico-container">
+        <div class="publico-card">
+          <div class="publico-titulo">Cidadãos</div>
+          <div class="publico-desc">Entenda como está a saúde pública na sua região.</div>
+        </div>
+        <div class="publico-card">
+          <div class="publico-titulo">Profissionais</div>
+          <div class="publico-desc">Acompanhe dados e indicadores para melhorar o cuidado.</div>
+        </div>
+        <div class="publico-card">
+          <div class="publico-titulo">Gestores Públicos</div>
+          <div class="publico-desc">Planeje ações com base em dados confiáveis do SUS.</div>
+        </div>
+        <div class="publico-card">
+          <div class="publico-titulo">Jornalistas</div>
+          <div class="publico-desc">Encontre informações claras para embasar reportagens.</div>
+        </div>
+      </div>
+    </div>
+    <div class="fontes-bloco">
+      <div class="fontes-container">
+        <div class="fontes-topo">
+          <h2>Fontes de Dados</h2>
+          <div>
+            <p>FONTES CONFIÁVEIS</p>
+            <div class="fontes-subinfo">Todos os dados são públicos e atualizados.</div>
+          </div>
+        </div>
+        <div class="fontes-logos">
+          <div class="logo-card"><img src="assets/logos_empresas/images.png" alt="DATASUS"></div>
+          <div class="logo-card"><img src="assets/logos_empresas/Tabnet.png" alt="Tabnet"></div>
+          <div class="logo-card"><img src="assets/logos_empresas/logo-brasilio.png" alt="Brasil.io"></div>
+          <div class="logo-card"><img src="assets/logos_empresas/ibge-logo.png" alt="IBGE"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-wrapper" id="painel">
+    <div class="cta-container">
+      <h2>Explore agora os dados que movem o SUS</h2>
+      <a href="dashboard.html" class="btn">ACESSAR PAINEL</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div><strong>InfoSUS</strong></div>
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#indicadores">Indicadores</a>
+      <a href="#fontes">Fontes</a>
+    </nav>
+  </footer>
+</body>
+</html>
